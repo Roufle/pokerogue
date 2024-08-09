@@ -1,16 +1,7 @@
 import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import processor, { KoreanPostpositionProcessor } from "i18next-korean-postposition-processor";
-
-import { deConfig } from "#app/locales/de/config.js";
 import { enConfig } from "#app/locales/en/config.js";
-import { esConfig } from "#app/locales/es/config.js";
-import { frConfig } from "#app/locales/fr/config.js";
-import { itConfig } from "#app/locales/it/config.js";
-import { koConfig } from "#app/locales/ko/config.js";
-import { ptBrConfig } from "#app/locales/pt_BR/config.js";
-import { zhCnConfig } from "#app/locales/zh_CN/config.js";
-import { zhTwConfig } from "#app/locales/zh_TW/config.js";
 
 const unicodeHalfAndFullWidthForms = [
   "U+FF00-FFEF"
@@ -94,7 +85,7 @@ export async function initI18n(): Promise<void> {
   await i18next.init({
     nonExplicitSupportedLngs: true,
     fallbackLng: "en",
-    supportedLngs: ["en", "es", "fr", "it", "de", "zh", "pt", "ko"],
+    supportedLngs: ["en"],
     defaultNS: "menu",
     ns: Object.keys(enConfig),
     detection: {
@@ -107,30 +98,6 @@ export async function initI18n(): Promise<void> {
     resources: {
       en: {
         ...enConfig
-      },
-      es: {
-        ...esConfig
-      },
-      fr: {
-        ...frConfig
-      },
-      it: {
-        ...itConfig
-      },
-      de: {
-        ...deConfig
-      },
-      "pt-BR": {
-        ...ptBrConfig
-      },
-      "zh-CN": {
-        ...zhCnConfig
-      },
-      "zh-TW": {
-        ...zhTwConfig
-      },
-      ko: {
-        ...koConfig
       },
     },
     postProcess: ["korean-postposition"],
